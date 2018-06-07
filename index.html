@@ -42,7 +42,11 @@
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
         <div class="content-block">
-            <p>Left panel content goes here</p>
+            <ul>
+			<li><a href="about2.html" class="link">Ayuda</a></li>
+			<li><a href="about2.html" class="link">Ayuda</a></li>
+			<li><a href="about2.html" class="link">Ayuda</a></li>
+			</ul>
         </div>
     </div>
 
@@ -77,7 +81,7 @@
 							
 								<div><center><b>Bikes or Cars</b></center>
 								<div id="cargar" style="display:none"><img src="img/bars.svg"></div>
-								<center><input onclick="connect(this.value)" type="button" value="Carros" /></center>
+								<center><input onclick="signIn()" type="button" value="Carros" /></center>
 								<center><input onclick="connect(this.value)" type="button" value="Bicicletas" /></center>
 								<center><b>Results</b></center>
 								<ul id="result"></ul></div>
@@ -90,7 +94,7 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
                     <!-- Toolbar links -->
-                    <a href="about2.html class="link">Link 1</a>
+                    <a href="about2.html" class="link">Ayuda</a>
                     <a href="#" class="link">Link 2</a>
                 </div>
             </div>
@@ -105,31 +109,50 @@
 	<script src="lib/bootstrap/bootstrap.min.js"></script>
 	
 			<script charset="utf−8" type="text/javascript">
-			function connect(e)
-			{
-			var term= {button:e};
-			$.ajax({
-			url:'http://lunatiks.net/app_retail_v1/validar.php',
-			type:'POST',
-			data:term,
-			dataType:'json',
-			crossDomain: true,
-			beforeSend: function(){
-				  $("#cargar").show();
-				},
-			error:function(jqXHR,text_status,strError){
-			alert("no conecta");},
-			timeout:600000,
-			success:function(data){
-			$("#cargar").hide();
-			for(var i in data){
-			$("#result").append("<li>"+data[i]+"</li>");
-			}
-			}
-			});}
-			
-			
-			</script>
-</body>
 
+
+			function signIn(e) {	
+				    $.ajax({
+                    url : 'http://lunatiks.net/app_retail_v1/validar.php',
+					crossDomain: true,
+                    data : { 
+                        // data client
+                        tuser: 'danilo',
+                        tpass: '1234',
+                        op:'validar'  
+                    },
+                    type : 'GET',
+                    dataType : 'json',
+					error:function(jqXHR,text_status,strError){
+					alert("no conecta");},
+					timeout:600000,
+					beforeSend : function(){
+						alert("Cargando...");
+                    },
+                    success : function(json) {
+                        console.log(json);
+                        if (json.response == 'ok') {
+                            sesiones = json.token_aleatorio;
+                            // alert(sesiones);
+                             valid_login = true;    
+                              sessionStorage.setItem("usuario",sesiones);
+                              $('#home').hide();
+							  $('#dashboard').show();
+							  $('#dashboard').load('about.html');
+							   //window.location.href = "home.php"
+							   alert("Logueado con: "+sesiones );
+                        }else{
+						    alert("resultado: "+json.response);
+							//waitingDialog.show('Error en Datos...', {dialogSize: 'sm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 1000);
+                         //waitingDialog.show('Error en sus datos...', {dialogSize: 'm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 2000);
+                        }
+                    },
+                    error : function(jqXHR, status, error) {
+                        console.log(error);
+						alert(error);
+                    }
+                }); 
+			}
+		</script>
+</body>
 </html>
