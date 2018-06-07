@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.phxretail.itolab" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>PHX-RETAIL</name>
+    <description>
+        A basic Framework7 template for PhoneGap.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <access subdomains="true" uri="http://160.153.93.98" />
+    <access subdomains="true" uri="http://lunatiks.net/app_retail_v1/" />
+    <access subdomains="true" uri="https://160.153.93.98" />
+    <access subdomains="true" uri="https://lunatiks.net/app_retail_v1/" />
+    <access launch-external="yes" origin="http://*" />
+    <access launch-external="yes" origin="https://*" />
+    <access launch-external="yes" origin="*" />
+    <allow-intent href="http://lunatiks.net/app_retail_v1/" />
+    <allow-intent href="https://lunatiks.net/app_retail_v1/" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <preference name="DisallowOverscroll" value="true" />
+</widget>
