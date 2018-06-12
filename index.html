@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
+	<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
@@ -41,12 +42,10 @@
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <ul>
-			<li><a href="about2.html" class="link">Ayuda</a></li>
-			<li><a href="about2.html" class="link">Ayuda</a></li>
-			<li><a href="about2.html" class="link">Ayuda</a></li>
-			</ul>
+        <div class="content-block" >
+            <ol class="lista2" id="menu_1">
+			
+			</ol>
         </div>
     </div>
 
@@ -59,7 +58,7 @@
                 <div class="navbar-inner">
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
                     <div class="center sliding">PHX RETAIL</div>
-                    <div class="right">
+                    <div class="right"> <div id="loguer"></div>
                         <!--
                           Right link contains only icon - additional "icon-only" class
                           Additional "open-panel" class tells app to open panel when we click on this link
@@ -74,14 +73,34 @@
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
-                        <div class="content-block">
-                            <p>Page content goes here</p>
+                        <div class="content-block">  
                             <!-- Link to another page -->
                             <a href="about.html">About app</a>
+							<input id="idu" name="idu" type="hidden">
+							<div class="box-content_login " id="loguin_div">
+							
+								<div class="text-center">
+									<h3 class="page-header">Login Page</h3>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Username</label>
+									<input type="text" class="form-control" name="username" id="username" required />
+								</div>
+								<div class="form-group">
+									<label class="control-label">Password</label>
+									<input type="password" class="form-control" name="password" id="password" required/>
+									<div id="pass" style="display:none">
+									<label class="centered info">Ingrese su Password.
+									</label>
+									</div>
+								</div>
+								<div class="text-center">
+									 <a id="bloguear" class="btn btn-success btn-label-left" onclick="signIn();">Acceso <i class="fa  fa-lock"></i> </a>
+								</div>
+							</div>
 							
 								<div><center><b>Bikes or Cars</b></center>
 								<div id="cargar" style="display:none"><img src="img/bars.svg"></div>
-								<center><input onclick="signIn()" type="button" value="Carros" /></center>
 								<center><input onclick="connect(this.value)" type="button" value="Bicicletas" /></center>
 								<center><b>Results</b></center>
 								<ul id="result"></ul></div>
@@ -106,19 +125,20 @@
     <script type="text/javascript" src="js/my-app.js"></script>
 	<script type="text/javascript" charset="utf-8" src="lib/js/jquery.min.js"></script>
 	<script src="lib/js/modal.js"></script>
+	 <script src="js/funciones.js"></script>
 	<script src="lib/bootstrap/bootstrap.min.js"></script>
 	
 			<script charset="utf−8" type="text/javascript">
 
-
+			var user=0;
 			function signIn(e) {	
 				    $.ajax({
                     url : 'http://lunatiks.net/app_retail_v1/validar.php',
 					crossDomain: true,
                     data : { 
                         // data client
-                        tuser: 'danilo',
-                        tpass: '1234',
+                        tuser: $("#username").val(),
+                        tpass: $("#password").val(),
                         op:'validar'  
                     },
                     type : 'GET',
@@ -127,22 +147,29 @@
 					alert("no conecta");},
 					timeout:600000,
 					beforeSend : function(){
-						alert("Cargando...");
+						$("#cargar").show();
                     },
                     success : function(json) {
+					   $('#cargar').hide();
                         console.log(json);
                         if (json.response == 'ok') {
                             sesiones = json.token_aleatorio;
+							user = json.idu;
                             // alert(sesiones);
                              valid_login = true;    
                               sessionStorage.setItem("usuario",sesiones);
                               $('#home').hide();
 							  $('#dashboard').show();
-							  $('#dashboard').load('about.html');
+							 // $('#dashboard').load('about.html');
 							   //window.location.href = "home.php"
-							   alert("Logueado con: "+sesiones );
+							   //alert("Logueado con: "+user );
+							   $('#loguer').html("Bienvenido: "+sesiones);
+							   $('#idu').val(user);
+							   $('#loguin_div').remove();
+							   loadmenu();
+							   //loadmenu();
                         }else{
-						    alert("resultado: "+json.response);
+						    //alert("resultado: "+json.response);
 							//waitingDialog.show('Error en Datos...', {dialogSize: 'sm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 1000);
                          //waitingDialog.show('Error en sus datos...', {dialogSize: 'm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 2000);
                         }
