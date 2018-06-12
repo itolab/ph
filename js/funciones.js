@@ -1,7 +1,7 @@
 function loadmenu(e) {	
 var i=0;
 var l = 0;
-alert("entra"+$("#idu").val());
+
 				    $.ajax({
                     url : 'http://lunatiks.net/app_retail_v1/load_menu.php',
 					crossDomain: true,
