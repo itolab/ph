@@ -1,3 +1,5 @@
+
+
 function loadmenu(e) {	
 var i=0;
 var l = 0;
@@ -19,7 +21,7 @@ var l = 0;
 						$("#cargar").show();
                     },
                     success : function(json) {
-                        console.log(json);
+                        //console.log(json);
                         if (json.response == 'ok') {
                             sesiones = json.menu;
                             // alert(sesiones);
@@ -28,25 +30,26 @@ var l = 0;
                               $('#cargar').hide();
 							  var manulis = [];
 							  var manusub = [];
-							 $.each(json.menu, function(d,menu){
-                                manulis.push(json.menu[d].menui);
-								i=i+1;
-								var lista_menu = '<li>'+json.menu[d].menui+ ' <a class="dropdown-toggle" href="#" title= "'+json.menu[d].menui+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
+							$("#carga_home").load('home.html');
+							
+							var  x = "";
+							for (i in json.menu) {
+								var lista_menu = '<li>'+json.menu[i].menui+ ' <a title= "'+json.menu[i].menui+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
 								$("#menu_1").append(lista_menu);
-								var submenu_l = '<ol id="subm_1">';
-								/*$.each(json.sub, function(j,sub){
+								var submenu_l = '<ul id="subm_1'+i+'">';
+								$("#menu_1").append(submenu_l);
+								for (j in json.menu[i].sub) {
+									//x += json.menu[i].sub[j].submenu + "<br>";
+									submenu_l = '<li>'+json.menu[i].sub[j].submenu+ ' <a  href="#" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
+									$("#subm_1"+i).append(submenu_l);
+								}
 								
-                                manusub.push(json.sub[j].detalle);
-								l=l+1;
-								var lista_smenu = '<li>'+json.sub[j].detalle+ ' <a class="dropdown-toggle" href="#" title= "'+json.sub[j].detalle+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
-								$("#subm_1").append(lista_smenu);
-								console.log(lista_smenu);
-								submenu_l = '</ol>';
-								console.log(lista_menu);
-								});*/
-								
-                            });
-
+								submenu_l = '</ul>';
+								$("#subm_1"+i).append(submenu_l);
+								console.log(submenu_l);
+							}							
+							console.log(x);
+							
                         }else{
 						    //alert("resultado: "+json.response);
 							//waitingDialog.show('Error en Datos...', {dialogSize: 'sm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 1000);
