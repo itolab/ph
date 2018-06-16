@@ -31,7 +31,12 @@
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
-	<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="css/style7.css" />
+	<!--
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+	<link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+	<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -43,9 +48,12 @@
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
         <div class="content-block" >
-            <ol class="lista2" id="menu_1">
-			
-			</ol>
+		<!-- MENU IZQUIERDO-->
+	
+		<ul class="lista2" id="menu_1">
+		</ul>
+
+          <!-- FIN MENU IZQUIERDO-->  
         </div>
     </div>
 
@@ -74,8 +82,8 @@
                     <!-- Scrollable page content -->
                     <div class="page-content">
                         <div class="content-block">  
-                            <!-- Link to another page -->
-                            <a href="about.html">About app</a>
+                            <!-- Link to another page
+                            <a href="about.html">About app</a> -->
 							<input id="idu" name="idu" type="hidden">
 							<div class="box-content_login " id="loguin_div">
 							
@@ -84,7 +92,7 @@
 								</div>
 								<div class="form-group">
 									<label class="control-label">Username</label>
-									<input type="text" class="form-control" name="username" id="username" required />
+									<input type="text" class="form-control col-xs-12" name="username" id="username" required />
 								</div>
 								<div class="form-group">
 									<label class="control-label">Password</label>
@@ -98,12 +106,14 @@
 									 <a id="bloguear" class="btn btn-success btn-label-left" onclick="signIn();">Acceso <i class="fa  fa-lock"></i> </a>
 								</div>
 							</div>
-							
-								<div><center><b>Bikes or Cars</b></center>
-								<div id="cargar" style="display:none"><img src="img/bars.svg"></div>
+			
+							<div class="contenedor" id="carga_home"></div>
+							<div id="cargar" style="display:none;margin-left:40%;"><img src="img/bars.svg"></div>
+								<!--<div><center><b>Bikes or Cars</b></center>
+								
 								<center><input onclick="connect(this.value)" type="button" value="Bicicletas" /></center>
 								<center><b>Results</b></center>
-								<ul id="result"></ul></div>
+								<ul id="result"></ul></div>-->
 							
                         </div>
                     </div>
@@ -119,17 +129,20 @@
             </div>
         </div>
     </div>
-
+	<script type="text/javascript" charset="utf-8" src="lib/js/jquery.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-	<script type="text/javascript" charset="utf-8" src="lib/js/jquery.min.js"></script>
-	<script src="lib/js/modal.js"></script>
-	 <script src="js/funciones.js"></script>
-	<script src="lib/bootstrap/bootstrap.min.js"></script>
+	<script src="lib/histchar/code/highcharts.js"></script>
+	<script src="lib/histchar/code/modules/data.js"></script>
+	<script src="lib/histchar/code/modules/drilldown.js"></script>
 	
+	<script src="js/funciones.js"></script>
+	<!--<script src="lib/js/modal.js"></script>
+	<script src="lib/bootstrap/bootstrap.min.js"></script>
+	<script src="js/devoops.js"></script>
+	<script src="lib/jquery/jquery-2.1.0.min.js"></script></script>-->
 			<script charset="utf−8" type="text/javascript">
-
 			var user=0;
 			function signIn(e) {	
 				    $.ajax({
