@@ -13,7 +13,42 @@
 .statusbar-overlay {
     background: #000000;
 }
-
+.form-control {
+  height: 26px;
+  padding: 2px 12px;
+}
+.input-lg {
+  height:39px;
+}
+.input-sm {
+  height:18px;
+}
+.bg-default {
+  background: #D8D8D8 !important;
+}
+.bg-primary {
+  background: #6AA6D6 !important;
+  color:#f8f8f8 !important;
+}
+.bg-success {
+  background: #63CC9E !important;
+  color:#f8f8f8 !important;
+}
+.bg-info {
+  background: #7BC5D3 !important;
+  color:#f8f8f8 !important;
+}
+.bg-warning {
+  background: #DFD271 !important;
+  color:#f8f8f8 !important;
+}
+.bg-danger {
+  background: #D15E5E !important;
+  color:#f8f8f8 !important;
+}
+.txt-default {
+  color: #D8D8D8 !important;
+}
 /*
 h1, .h1, h2, .h2, h3, .h3 {
   margin:0;
