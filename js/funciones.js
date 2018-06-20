@@ -54,7 +54,7 @@ var l = 0;
 								$("#menu_1").append(submenu_l);
 								for (j in json.menu[i].sub) {
 									//x += json.menu[i].sub[j].submenu + "<br>";
-									submenu_l = '<li>'+json.menu[i].sub[j].submenu+ ' <a href="'+json.menu[i].sub[j].link+'" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
+									submenu_l = '<li> <a href="'+json.menu[i].sub[j].link+'" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i>'+json.menu[i].sub[j].submenu+ '</a></span> </b></li>';
 									$("#subm_1"+i).append(submenu_l);
 								}
 								console.log(submenu_l);
