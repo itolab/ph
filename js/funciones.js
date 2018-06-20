@@ -54,13 +54,13 @@ var l = 0;
 								$("#menu_1").append(submenu_l);
 								for (j in json.menu[i].sub) {
 									//x += json.menu[i].sub[j].submenu + "<br>";
-									submenu_l = '<li>'+json.menu[i].sub[j].submenu+ ' <a  href="'+json.menu[i].sub[j].link+'" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
+									submenu_l = '<li>'+json.menu[i].sub[j].submenu+ ' <a href="'+json.menu[i].sub[j].link+'" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
 									$("#subm_1"+i).append(submenu_l);
 								}
-								
+								console.log(submenu_l);
 								submenu_l = '</ul>';
 								$("#subm_1"+i).append(submenu_l);
-								console.log(submenu_l);
+								
 							}							
 							console.log(x);
 							
@@ -106,8 +106,8 @@ function mostrar_marcas(){
 										"<a href=''>"+
 											"<span class='ca-icon'>A</span>"+
 											"<div class='ca-content'>"+
-												"<h2 class='ca-main'><img src='img/"+json.logo+"'</h2>"+
-												"<h3 class='ca-sub'>"+json.brank+"</h3>"+
+												"<h2 class='ca-main'><img src='../img/"+json.marca[d].logo+"'</h2>"+
+												"<h3 class='ca-sub'>"+json.marca[d].brank+"</h3>"+
 											"</div>"+
 										"</a>"+
 									"</li>";
