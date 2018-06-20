@@ -33,13 +33,14 @@
     <link rel="stylesheet" href="css/styles.css">
 	<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="css/style7.css" />
-	<!--
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css">
+	<!--<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+	
 	<link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 	<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">-->
 </head>
 
-<body>
+<body style="background-image:url(img/startup-0.svg)">
     <!-- Status bar overlay for full screen mode (PhoneGap) -->
     <div class="statusbar-overlay"></div>
 
@@ -66,7 +67,7 @@
                 <div class="navbar-inner">
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
                     <div class="center sliding">PHX RETAIL</div>
-                    <div class="right"> <div id="loguer"></div>
+                    <div class="right"> 
                         <!--
                           Right link contains only icon - additional "icon-only" class
                           Additional "open-panel" class tells app to open panel when we click on this link
@@ -84,6 +85,7 @@
                         <div class="content-block">  
                             <!-- Link to another page
                             <a href="about.html">About app</a> -->
+							<div id="loguer"></div>
 							<input id="idu" name="idu" type="hidden">
 							<div class="box-content_login " id="loguin_div">
 							
@@ -92,12 +94,12 @@
 								</div>
 								<div class="item-input-wrap">
 									<label class="control-label">Username</label>
-									<input type="text" class="form-control input-lg"  name="username" id="username" required validate />
+									<input type="text" class="form-control"  name="username" id="username" required validate />
 								</div>
 								<br>
 								<div class="item-input-wrap">
 									<label class="control-label">Password</label>
-									<input type="password" class="form-control input-lg"  name="password" id="password" required validate/>
+									<input type="password" class="form-control"  name="password" id="password" required validate/>
 									<div id="pass" style="display:none">
 									<label class="centered info">Ingrese su Password.
 									</label>
@@ -108,9 +110,9 @@
 									 <a id="bloguear" class="col button button-big color-black" onclick="signIn();">Acceso <i class="fa  fa-lock"></i> </a>
 								</div>
 							</div>
-			
-							<div class="contenedor" id="carga_home"></div>
-							<div id="cargar" style="display:none;margin-left:40%;"><img src="img/bars.svg"></div>
+							
+							<div  id="carga_home"></div>
+							<div id="cargar" style="display:none;margin-left:41%;"><img src="img/bars.svg"></div>
 								<!--<div><center><b>Bikes or Cars</b></center>
 								
 								<center><input onclick="connect(this.value)" type="button" value="Bicicletas" /></center>
@@ -126,7 +128,7 @@
                 <div class="toolbar-inner">
                     <!-- Toolbar links -->
                     <a href="about2.html" class="link">Ayuda</a>
-                    <a href="#" class="link">Link 2</a>
+           
                 </div>
             </div>
         </div>
@@ -135,17 +137,17 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
-	<script src="lib/histchar/code/highcharts.js"></script>
-	<script src="lib/histchar/code/modules/data.js"></script>
-	<script src="lib/histchar/code/modules/drilldown.js"></script>
+	<script src="lib/dist/Chart.bundle.js"></script>
+	<script src="lib/utils.js"></script>
 	
 	<script src="js/funciones.js"></script>
 	<!--<script src="lib/js/modal.js"></script>
 	<script src="lib/bootstrap/bootstrap.min.js"></script>
 	<script src="js/devoops.js"></script>
-	<script src="lib/jquery/jquery-2.1.0.min.js"></script></script>-->
+	<script src="lib/jquery/jquery-2.1.0.min.js"></script></script><script src="lib/bootstrap/bootstrap.min.js"></script>-->
 			<script charset="utf−8" type="text/javascript">
 			var user=0;
+			
 			function signIn(e) {	
 				    $.ajax({
                     url : 'http://lunatiks.net/app_retail_v1/validar.php',
@@ -170,6 +172,8 @@
                         if (json.response == 'ok') {
                             sesiones = json.token_aleatorio;
 							user = json.idu;
+							perfil = json.tipo;
+							console.log("perfil:"+perfil);
                             // alert(sesiones);
                              valid_login = true;    
                               sessionStorage.setItem("usuario",sesiones);
@@ -196,5 +200,6 @@
                 }); 
 			}
 		</script>
+		
 </body>
 </html>
