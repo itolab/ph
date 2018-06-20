@@ -54,7 +54,7 @@ var l = 0;
 								$("#menu_1").append(submenu_l);
 								for (j in json.menu[i].sub) {
 									//x += json.menu[i].sub[j].submenu + "<br>";
-									submenu_l = '<li>'+json.menu[i].sub[j].submenu+ ' <a  href="#" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
+									submenu_l = '<li>'+json.menu[i].sub[j].submenu+ ' <a  href="'+json.menu[i].sub[j].link+'" title= "'+json.menu[i].sub[j].submenu+'"><i class="fa fa-info-circle"></i></a></span> </b></li>';
 									$("#subm_1"+i).append(submenu_l);
 								}
 								
@@ -100,13 +100,10 @@ function mostrar_marcas(){
                             // alert(sesiones);
                              valid_login = true;    							  
 							var brank = [];
-							var new_div = "<ul class='ca-menu' >;"	
-							 $.each(json.lista_camp, function(d,nombre_camp){
-                                
-								var total_camp2 = json.lista_camp[d].total;
-								
+							var new_div = "<ul class='ca-menu' >;";	
+							 $.each(json.marca, function(d,brank){								
 								new_div += "<li>"+
-										"<a href="#">"+
+										"<a href=''>"+
 											"<span class='ca-icon'>A</span>"+
 											"<div class='ca-content'>"+
 												"<h2 class='ca-main'><img src='img/"+json.logo+"'</h2>"+
@@ -118,11 +115,6 @@ function mostrar_marcas(){
                             new_div += "</ul>";
 							$("#carga_menu_ventas").append(new_div);
 							console.log(new_div);
-							
-                        }else{
-						    //alert("resultado: "+json.response);
-							//waitingDialog.show('Error en Datos...', {dialogSize: 'sm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 1000);
-                         //waitingDialog.show('Error en sus datos...', {dialogSize: 'm', progressType: 'red'});setTimeout(function () {waitingDialog.hide();}, 2000);
                         }
                     },
                     error : function(jqXHR, status, error) {
