@@ -140,7 +140,8 @@ width:1000%;
 
 .arreglar {
 width:100%;
-padding-left:5px;
+padding-left:10px;
+margin-left:8px;
 padding-top:5px;
 height:auto;
 }
@@ -151,6 +152,7 @@ padding-left:5px;
 padding-top:5px;
 padding-right: 5px;
 margin-top:5px;
+margin-left:8px;
 }
 .arreglar li {
 width:100%;
@@ -158,6 +160,7 @@ padding-left:5px;
 padding-top:5px;
 padding-right: 5px;
 margin-top:5px;
+margin-left:8px;
 }
 @media (max-width: 767px) {
  .arreglar{
@@ -165,6 +168,7 @@ width:100%;
 padding-left:5px;
 padding-top:5px;
 padding-right: 5px;
+margin-left:8px;
 }
 .arreglar ul {
 width:100%;
@@ -172,11 +176,13 @@ padding-left:5px;
 padding-top:5px;
 padding-right: 5px;
 margin-top:5px;
+margin-left:8px;
 }
 .arreglar li {
 width:100%;
 padding-top:5px;
 margin-top:5px;
+margin-left:8px;
 }
 
 }
@@ -188,6 +194,7 @@ padding-left:5px;
 padding-top:5px;
 margin-top:5px;
 padding-right: 5px;
+margin-left:8px;
 }
 .arreglar ul {
 width:100%;
@@ -195,11 +202,13 @@ padding-left:5px;
 padding-top:5px;
 padding-right: 5px;
 margin-top:5px;
+margin-left:8px;
 }
 .arreglar li {
 width:100%;
 padding-top:5px;
 margin-top:5px;
+margin-left:8px;
 }
 
 }
@@ -208,20 +217,21 @@ margin-top:5px;
 width:100%;
 padding-left:5px;
 padding-top:5px;
-
+margin-left:8px;
 margin-top:5px;
 }
 .arreglar ul {
 width:100%;
 padding-left:5px;
 padding-top:5px;
-
+margin-left:8px;
 margin-top:5px;
 }
 .arreglar li {
 width:100%;
 padding-top:5px;
 margin-top:5px;
+margin-left:8px;
 }
 
 }
@@ -232,13 +242,13 @@ margin-top:5px;
 width:100%;
 padding-left:5px;
 padding-top:5px;
-
+margin-left:8px;
 }
 .arreglar ul {
 width:100%;
 padding-left:5px;
 padding-top:5px;
-
+margin-left:8px;
 }
 }
 

@@ -29,6 +29,8 @@
 
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
+	<link rel="stylesheet" href="framework7/css/framework7.min.css">
+    <link rel="stylesheet" href="css/icons.css">
 
     <link rel="stylesheet" href="css/styles.css">
 	<link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
@@ -140,6 +142,7 @@
 	<script src="lib/dist/Chart.bundle.js"></script>
 	<script src="lib/utils.js"></script>
 	
+	
 	<script src="js/funciones.js"></script>
 	<!--<script src="lib/js/modal.js"></script>
 	<script src="lib/bootstrap/bootstrap.min.js"></script>
@@ -147,7 +150,7 @@
 	<script src="lib/jquery/jquery-2.1.0.min.js"></script></script><script src="lib/bootstrap/bootstrap.min.js"></script>-->
 			<script charset="utf−8" type="text/javascript">
 			var user=0;
-			
+			var fecha="";
 			function signIn(e) {	
 				    $.ajax({
                     url : 'http://lunatiks.net/app_retail_v1/validar.php',
@@ -175,7 +178,8 @@
 							perfil = json.tipo;
 							console.log("perfil:"+perfil);
                             // alert(sesiones);
-                             valid_login = true;    
+                             valid_login = true; 
+							 fecha	= json.fecha;						 
                               sessionStorage.setItem("usuario",sesiones);
                               $('#home').hide();
 							  $('#dashboard').show();
